@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react"
 import { getTrandingMovie } from "servoces/Api"
 import { MoviesList } from "components/MoviesList/MoviesList"
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Error } from "components/Error/Error";
+import { Loader } from "components/Loader/Loader";
 
 export function Home(){
     const [movies, setMovies] = useState([])
+    const [error, setError] = useState(false)
+    const [loader, setLoader] = useState(false)
 
     useEffect(()=>{
        async function fetchMovies(){
         try{
+            setLoader(true)
             const data = await getTrandingMovie()
             console.log(data)
-            return setMovies(data)
-        }catch(er){
-            console.log(er)
+            setMovies(data)
+            setLoader(false)
+        }catch(error){
+            setError(true)
+            Notify.failure(error.message);
+        }finally{
+            setLoader(false)
         }
     }
         fetchMovies()
@@ -21,6 +31,10 @@ export function Home(){
     }, [])
     console.log(movies)
     return(
+        <>
         <MoviesList movies={movies}/>
+        {loader && <Loader/>}
+        {error && <Error/>}
+        </>
     )
 }
