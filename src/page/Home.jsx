@@ -4,11 +4,13 @@ import { MoviesList } from "components/MoviesList/MoviesList"
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Error } from "components/Error/Error";
 import { Loader } from "components/Loader/Loader";
+import { useLocation } from "react-router-dom";
 
-export function Home(){
+export default function Home(){
     const [movies, setMovies] = useState([])
     const [error, setError] = useState(false)
     const [loader, setLoader] = useState(false)
+    const location = useLocation()
 
     useEffect(()=>{
        async function fetchMovies(){
@@ -32,7 +34,7 @@ export function Home(){
     console.log(movies)
     return(
         <>
-        <MoviesList movies={movies}/>
+        <MoviesList movies={movies} location={location}/>
         {loader && <Loader/>}
         {error && <Error/>}
         </>

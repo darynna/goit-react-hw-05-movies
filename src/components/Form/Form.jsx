@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { StyledForm, Input, Button } from "./Form.styled";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function Form({setSearchParams}){
    const [query, setQuery] = useState('')
@@ -11,7 +13,7 @@ export function Form({setSearchParams}){
    const handleSubmit = (e)=>{
     e.preventDefault()
     if(query.trim() === ''){
-        console.log('Sorry ')
+        Notify.warning('Please, write the request!')
     }
 
     setSearchParams({query})
@@ -19,11 +21,11 @@ export function Form({setSearchParams}){
    }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <StyledForm onSubmit={handleSubmit}>
         <label>
-            <input value={query} name="query" type="text" onChange={handleChange}/>
+            <Input value={query} name="query" type="text" onChange={handleChange}/>
         </label>
-        <button type="submit">Search</button>
-        </form>
+        <Button type="submit">Search</Button>
+        </StyledForm>
     )
 }
