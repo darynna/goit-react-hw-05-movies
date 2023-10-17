@@ -34,6 +34,7 @@ export default function Home(){
     console.log(movies)
     return(
         <>
+        <h1>Trending today:</h1>
         <MoviesList movies={movies} location={location}/>
         {loader && <Loader/>}
         {error && <Error/>}
