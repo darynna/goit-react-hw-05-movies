@@ -1,5 +1,4 @@
-import { getTrandingMovie } from 'servoces/Api';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
 
@@ -11,7 +10,6 @@ const Cast = lazy(() => import('./Cast/Cast'))
 const Review = lazy(() => import('./Review/Review'))
 
 export const App = () => {
-  getTrandingMovie();
   return (
     <>
       <Routes>
@@ -23,6 +21,7 @@ export const App = () => {
             <Route path="review" element={<Review />} />
           </Route>
         </Route>
+        <Route path="*" element={<Navigate to ="/" />}/>
       </Routes>
     </>
   );

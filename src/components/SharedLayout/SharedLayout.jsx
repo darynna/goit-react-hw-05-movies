@@ -10,7 +10,7 @@ export default function SharedLayout(){
         <div>
         <Header>
             <Nav>
-                <StyledNavLink StyledNavLink to='/'><AiOutlineHome/>Home</StyledNavLink>
+                <StyledNavLink to='/'><AiOutlineHome/>Home</StyledNavLink>
                 <StyledNavLink to='/movies'><RiMovieLine/>Movies</StyledNavLink>
             </Nav>
         </Header>
