@@ -7,7 +7,7 @@ background-color: grey;
 display:flex;
 justify-content:center;
 align-items:center;
-color: black;
+color: #000000;
 `
 
 export const CastWrapper = styled.div`
@@ -17,5 +17,5 @@ background-color: grey;
 display:flex;
 justify-content:center;
 align-items:center;
-color: black;
+color: #000000;
 `
