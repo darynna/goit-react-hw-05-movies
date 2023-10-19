@@ -9,3 +9,13 @@ justify-content:center;
 align-items:center;
 color: black;
 `
+
+export const CastWrapper = styled.div`
+width:160px;
+height: 240px;
+background-color: grey;
+display:flex;
+justify-content:center;
+align-items:center;
+color: black;
+`

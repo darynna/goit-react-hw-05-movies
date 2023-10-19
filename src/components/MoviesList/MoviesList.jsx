@@ -1,5 +1,5 @@
 
-import Placeholder from 'components/Placeholder/Placeholder';
+import {Placeholder} from 'components/Placeholder/Placeholder';
 import { List, Item , ItemTitle, StyledLink} from './MoviesList.styled';
 import { useLocation } from 'react-router-dom';
 

@@ -5,6 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Error } from 'components/Error/Error';
 import { Loader } from 'components/Loader/Loader';
 import {CastWraper} from './Cast.styled'
+import {PlaceholderCast} from 'components/Placeholder/Placeholder';
 
 export default function Cast() {
   const { movieId } = useParams();
@@ -34,10 +35,11 @@ export default function Cast() {
         <CastWraper>
           {cast.map(actor => (
             <li key={actor.id}>
-              <img width='160px'
+              {actor.profile_path ?
+              <img width='160'
                 src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
                 alt={actor.name}
-              />
+              /> : <PlaceholderCast/>}
               <p>{actor.name}</p>
             </li>
           ))}

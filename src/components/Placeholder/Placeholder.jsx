@@ -1,6 +1,6 @@
-import { Wrapper } from "./Placeholder.styled";
+import { Wrapper, CastWrapper } from "./Placeholder.styled";
 
-const Placeholder = () => {
+export const Placeholder = () => {
 
       
     return (
@@ -10,4 +10,12 @@ const Placeholder = () => {
 
 }
 
-export default Placeholder;
+export const PlaceholderCast = () => {
+
+      
+    return (
+
+        <CastWrapper>Photo will be added soon...</CastWrapper>
+    )
+
+}

@@ -6,7 +6,6 @@ export function Form({setSearchParams}){
    const [query, setQuery] = useState('')
 
    const handleChange=(e)=>{
-    console.log(e.target.value)
     setQuery(e.target.value)
    }
 
